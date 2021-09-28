@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
-    public float speed = .5f;
+    public float speed = 3.0f;
     private Rigidbody enemyRb;
     private GameObject player;
 
@@ -22,5 +22,10 @@ public class EnemyController : MonoBehaviour
 
         enemyRb.AddForce(enemyRb.transform.forward*speed);
         enemyRb.transform.LookAt(player.transform.position);
+
+        if (transform.position.y < -10)
+        {
+            Destroy(gameObject);
+        }
     }
 }
